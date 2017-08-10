@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<br/>
+<p>Please enter your contact information and budget amount below:</p>
+<form method="post" style="max-width:800px;" th:object="${customer}">
+    <table>
+        <tr class="form-group">
+           <td><label th:for="firstName">First Name:</label></td>
+            <td><input class="form-control" th:field="*{firstName}" /></td>
+            <td><span th:errors="*{firstName}" class="error"></span></td>
+        </tr>
+        <tr class="form-group">
+            <td><label th:for="lastName">Last Name:</label></td>
+            <td><input class="form-control" th:field="*{lastName}" /></td>
+            <td><span th:errors="*{lastName}" class="error"></span></td>
+        </tr>
+
+        <tr class="form-group">
+            <td><label th:for="budget">Budget($):</label></td>
+            <td><input class="form-control" th:field="*{budget}" /></td>
+            <td><span th:errors="*{budget}" class="error"></span></td>
+        </tr>
+
+        <tr class="form-group">
+            <td><label th:for="email">Email Address: </label></td>
+            <td><input class="form-control" th:field="*{email}" /></td>
+            <td><span th:errors="*{email}" class="error"></span></td>
+        </tr>
+        <tr><td><br/></td></tr>
+        <tr>
+        <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
