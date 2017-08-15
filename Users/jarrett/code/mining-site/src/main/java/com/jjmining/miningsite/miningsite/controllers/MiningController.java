@@ -26,7 +26,7 @@ public class MiningController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String submit(Model model){
-        model. addAttribute("title", "Submit a Budget");
+        model.addAttribute("title", "Submit a Budget");
         model.addAttribute(new Customer());
 
         return "customer/index";

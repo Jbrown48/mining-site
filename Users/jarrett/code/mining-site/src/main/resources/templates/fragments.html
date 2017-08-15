@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <h4>J&amp;J Mining Shop</h4>
+    <h4>J&amp;J Mining Shop<small> | BTC 4000 | ZTC 206</small></h4>
+
     <title th:text="${title}">Default</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -11,9 +12,15 @@
 </head>
 <body>
 <nav th:fragment="navigation">
+    <a href="/owner">Home</a> |
+    <a href="/calculator">Mining Calculator</a> |
+    <a href="/owner">Log In</a> |
+    <a href="/owner/customer-list">Customer List</a>
+</nav>
+
+<nav th:fragment="custNavigation">
     <a href="/customer">Home</a> |
     <a href="/calculator">Mining Calculator</a> |
-    <a hre="/login">Log In</a> |
 </nav>
 
 </body>

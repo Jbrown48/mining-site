@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container">
+    <h2>Current Part Prices</h2>
+    <p>The current prices of all parts used in mining build:</p>
+        <table class="table">
+        <tr>
+            <th>PART</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>LINK</th>
+        </tr>
+        <tr>
+            <td>CPU</td>
+            <td>name</td>
+            <td>price</td>
+            <td>link</td>
+        </tr>
+        <tr>
+            <td>MOBO</td>
+            <td th:name="moboName" th:text="${moboName}"></td>
+            <td th:name="moboPrice" th:text="${moboPrice}"></td>
+            <td th:name="moboLink"><a th:href="${moboLink}">Link</a></td>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>name</td>
+            <td>price</td>
+            <td>link</td>
+        </tr>
+        <tr>
+            <td>SSD</td>
+            <td>name</td>
+            <td>price</td>
+            <td>link</td>
+        </tr>
+        <tr>
+            <td>PSU</td>
+            <td>name</td>
+            <td>price</td>
+            <td>link</td>
+        </tr>
+        <tr>
+            <td>GPU</td>
+            <td>name</td>
+            <td>price</td>
+            <td>link</td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
