@@ -18,23 +18,23 @@
             <th>PRICE</th>
             <th>LINK</th>
         </tr>
-        <tr>
-            <td>CPU</td>
-            <td>name</td>
-            <td>price</td>
-            <td>link</td>
+        <tr th:object="${cpu}">
+            <td th:text="*{type}">Type</td>
+            <td th:name="cpuName" th:text="*{name}"></td>
+            <td th:name="cpuPrice" th:text="*{price}"></td>
+            <td th:name="cpuLink"><a th:href="*{link}">Link</a></td>
         </tr>
-        <tr>
-            <td>MOBO</td>
-            <td th:name="moboName" th:text="${moboName}"></td>
-            <td th:name="moboPrice" th:text="${moboPrice}"></td>
-            <td th:name="moboLink"><a th:href="${moboLink}">Link</a></td>
+        <tr th:object="${mobo}">
+            <td th:text="*{type}">Type</td>
+            <td th:name="moboName" th:text="*{name}"></td>
+            <td th:name="moboPrice" th:text="*{price}"></td>
+            <td th:name="moboLink"><a th:href="*{link}">Link</a></td>
         </tr>
-        <tr>
-            <td>RAM</td>
-            <td>name</td>
-            <td>price</td>
-            <td>link</td>
+        <tr th:object="${ram}">
+            <td th:text="*{type}">Type</td>
+            <td th:name="ramName" th:text="*{name}"></td>
+            <td th:name="ramPrice" th:text="*{price}"></td>
+            <td th:name="ramLink"><a th:href="*{link}">Link</a></td>
         </tr>
         <tr>
             <td>SSD</td>
