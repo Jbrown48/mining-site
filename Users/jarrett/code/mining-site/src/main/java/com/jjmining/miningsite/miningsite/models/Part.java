@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by jarrett on 8/15/2017.
@@ -36,6 +37,9 @@ public class Part {
     @NotNull
     private String pcUrl;
 
+    //Need to look into adding all parts to arraylist?
+   /// private ArrayList<Part> part = new ArrayList<Part>();
+
     public Part(String type, String pcUrl) throws IOException {
         this.type = type;
         this.pcUrl = pcUrl;
@@ -51,6 +55,7 @@ public class Part {
     }
 
     public Part() {
+        ++id;
     }
 
     public int getId() {
@@ -92,8 +97,14 @@ public class Part {
     public String getPcUrl() {
         return pcUrl;
     }
-
+/*
+    //Need to look into adding all parts to arraylist?
     public void setPcUrl(String pcUrl) {
         this.pcUrl = pcUrl;
     }
+
+    public ArrayList<Part> getPart() {
+        return part;
+    }
+ */
 }

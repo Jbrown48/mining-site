@@ -42,12 +42,18 @@ public class OwnerController {
         model.addAttribute("moboPrice", moboPrice);
         model.addAttribute("moboLink",moboLink);
         */
-        Part mobo = new Part("Motherboard","https://pcpartpicker.com/product/Q9Gj4D/asus-motherboard-z170a");
+        Part mobo = new Part("Motherboard","https://pcpartpicker.com/product/7VZ2FT/asus-prime-z270-a-atx-lga1151-motherboard-prime-z270-a");
         Part cpu = new Part("CPU","https://pcpartpicker.com/product/8gKhP6/intel-pentium-g4560-35ghz-dual-core-processor-bx80677g4560");
         Part ram = new Part("RAM","https://pcpartpicker.com/product/Z8KhP6/crucial-memory-bls4g4d240fsb");
+        Part ssd = new Part("SSD","https://pcpartpicker.com/product/3kL7YJ/samsung-internal-hard-drive-mz75e250bam");
+        Part gpu = new Part("GPU","https://pcpartpicker.com/product/cHFXsY/gigabyte-geforce-gtx-1080-ti-11gb-aorus-video-card-gv-n108taorus-11gd");
+        Part psu = new Part("PSU","https://pcpartpicker.com/product/8LMFf7/evga-power-supply-120g21300xr");
         model.addAttribute("mobo",mobo);
         model.addAttribute("cpu",cpu);
         model.addAttribute("ram",ram);
+        model.addAttribute("ssd",ssd);
+        model.addAttribute("psu",psu);
+        model.addAttribute("gpu",gpu);
 
         return "owner/home";
     }
