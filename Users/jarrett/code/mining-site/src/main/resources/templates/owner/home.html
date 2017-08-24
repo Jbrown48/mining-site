@@ -16,43 +16,50 @@
             <th>PART</th>
             <th>NAME</th>
             <th>PRICE</th>
+            <th>BUY</th>
             <th>LINK</th>
         </tr>
         <tr th:object="${cpu}">
             <td th:text="*{type}">Type</td>
             <td th:name="cpuName" th:text="*{name}"></td>
-            <td th:name="cpuPrice" th:text="*{price}"></td>
-            <td th:name="cpuLink"><a th:href="*{link}">Link</a></td>
+            <td th:name="cpuPrice" th:text="'$ '+*{price}"></td>
+            <td th:name="cpuLink"><a th:href="*{link}">Buy</a></td>
+            <td th:name="cpuUrl"><a th:href="*{pcUrl}">Link</a></td>
         </tr>
         <tr th:object="${mobo}">
             <td th:text="*{type}">Type</td>
             <td th:name="moboName" th:text="*{name}"></td>
-            <td th:name="moboPrice" th:text="*{price}"></td>
-            <td th:name="moboLink"><a th:href="*{link}">Link</a></td>
+            <td th:name="moboPrice" th:text="'$ '+*{price}"></td>
+            <td th:name="moboLink"><a th:href="*{link}">Buy</a></td>
+            <td th:name="moboUrl"><a th:href="*{pcUrl}">Link</a></td>
         </tr>
         <tr th:object="${ram}">
             <td th:text="*{type}">Type</td>
             <td th:name="ramName" th:text="*{name}"></td>
-            <td th:name="ramPrice" th:text="*{price}"></td>
-            <td th:name="ramLink"><a th:href="*{link}">Link</a></td>
+            <td th:name="ramPrice" th:text="'$ '+*{price}"></td>
+            <td th:name="ramLink"><a th:href="*{link}">Buy</a></td>
+            <td th:name="ramUrl"><a th:href="*{pcUrl}">Link</a></td>
         </tr>
         <tr th:object="${ssd}">
             <td th:text="*{type}">Type</td>
             <td th:name="ssdName" th:text="*{name}"></td>
-            <td th:name="ssdPrice" th:text="*{price}"></td>
-            <td th:name="ssdLink"><a th:href="*{link}">Link</a></td>
+            <td th:name="ssdPrice" th:text="'$ '+*{price}"></td>
+            <td th:name="ssdLink"><a th:href="*{link}">Buy</a></td>
+            <td th:name="ssdUrl"><a th:href="*{pcUrl}">Link</a></td>
         </tr>
         <tr th:object="${psu}">
             <td th:text="*{type}">Type</td>
             <td th:name="psuName" th:text="*{name}"></td>
-            <td th:name="psuPrice" th:text="*{price}"></td>
-            <td th:name="psuLink"><a th:href="*{link}">Link</a></td>
+            <td th:name="psuPrice" th:text="'$ '+*{price}"></td>
+            <td th:name="psuLink"><a th:href="*{link}">Buy</a></td>
+            <td th:name="psuUrl"><a th:href="*{pcUrl}">Link</a></td>
         </tr>
         <tr th:object="${gpu}">
             <td th:text="*{type}">Type</td>
             <td th:name="gpuName" th:text="*{name}"></td>
-            <td th:name="gpuPrice" th:text="*{price}"></td>
-            <td th:name="gpuLink"><a th:href="*{link}">Link</a></td>
+            <td th:name="gpuPrice" th:text="'$ '+*{price}"></td>
+            <td th:name="gpuLink"><a th:href="*{link}">Buy</a></td>
+            <td th:name="gpuUrl"><a th:href="*{pcUrl}">Link</a></td>
         </tr>
     </table>
 </div>

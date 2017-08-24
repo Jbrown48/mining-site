@@ -37,7 +37,7 @@ public class MiningController {
                                 Errors errors, Model model){
         if (errors.hasErrors())
         {
-            model.addAttribute("title", "Submit For Quote");
+            model.addAttribute("title", "Submit a Budget");
             return "customer/index";
         }
 

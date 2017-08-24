@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by jarrett on 8/15/2017.
@@ -20,7 +21,9 @@ public class Part {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int id = 0;//trying to figure out how to make this iterate each new part
+
+    private static int counter = 0;
 
     @NotNull
     private String type;
@@ -29,7 +32,7 @@ public class Part {
     private String name;
 
     @NotNull
-    private String price;
+    private Double price;
 
     @NotNull
     private String link;
@@ -38,24 +41,30 @@ public class Part {
     private String pcUrl;
 
     //Need to look into adding all parts to arraylist?
-   /// private ArrayList<Part> part = new ArrayList<Part>();
+    private static ArrayList<Part> allParts = new ArrayList<>();
 
     public Part(String type, String pcUrl) throws IOException {
         this.type = type;
         this.pcUrl = pcUrl;
         Document document = Jsoup.connect(pcUrl).get();
         String partName = document.select(".title h1").text();
-        String partPrice = document.select("td.total a").first().text();
+
+        // can i get top three prices to show?
+        String partPriceString = document.select("td.total a").first().text();
+        Double partPrice = Double.valueOf(partPriceString.replaceAll("[$,+]", ""));
         Element partLink = document.select("td.total a").first();
         String relHref = partLink.attr("href");
         String absHref = partLink.attr("abs:href");
         this.name = partName;
         this.price = partPrice;
         this.link = absHref;
+        allParts.add(this); ///Still not working as intended adding but adding part multiple time.
     }
 
+
     public Part() {
-        ++id;
+        ++counter;
+        this.id=counter;
     }
 
     public int getId() {
@@ -78,11 +87,11 @@ public class Part {
         this.name = name;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -97,7 +106,15 @@ public class Part {
     public String getPcUrl() {
         return pcUrl;
     }
-/*
+
+    public static ArrayList<Part> getAllParts() {
+        return allParts;
+    }
+
+    public static void setAllParts(ArrayList<Part> allParts) {
+        Part.allParts = allParts;
+    }
+    /*
     //Need to look into adding all parts to arraylist?
     public void setPcUrl(String pcUrl) {
         this.pcUrl = pcUrl;

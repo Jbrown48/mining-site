@@ -2,6 +2,7 @@ package com.jjmining.miningsite.miningsite.controllers;
 
 import com.jjmining.miningsite.miningsite.models.Part;
 import com.jjmining.miningsite.miningsite.models.data.CustomerDao;
+import com.jjmining.miningsite.miningsite.models.data.PartDao;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by jarrett on 8/14/2017.
@@ -21,6 +23,9 @@ public class OwnerController {
 
     @Autowired
     private CustomerDao customerDao;
+
+    @Autowired
+    private PartDao partDao;
 
     @RequestMapping(value = "")
     public String index(Model model) throws IOException {
@@ -48,6 +53,7 @@ public class OwnerController {
         Part ssd = new Part("SSD","https://pcpartpicker.com/product/3kL7YJ/samsung-internal-hard-drive-mz75e250bam");
         Part gpu = new Part("GPU","https://pcpartpicker.com/product/cHFXsY/gigabyte-geforce-gtx-1080-ti-11gb-aorus-video-card-gv-n108taorus-11gd");
         Part psu = new Part("PSU","https://pcpartpicker.com/product/8LMFf7/evga-power-supply-120g21300xr");
+
         model.addAttribute("mobo",mobo);
         model.addAttribute("cpu",cpu);
         model.addAttribute("ram",ram);
@@ -61,6 +67,9 @@ public class OwnerController {
     @RequestMapping(value="customer-list")
     public String customerList(Model model){
         model.addAttribute("title", "Customer List");
+        model.addAttribute("btcPrice","$4001");
+        model.addAttribute("ztcPrice","$206");
+
         model.addAttribute("customers", customerDao.findAll());
 
         return "owner/customer-list";
