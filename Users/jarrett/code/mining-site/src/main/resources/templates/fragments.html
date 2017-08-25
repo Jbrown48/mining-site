@@ -2,7 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8"/>
-    <h4>J&amp;J Mining Shop<small> | BTC <span th:text="${btcPrice}"></span> | ZTC <span th:text="${ztcPrice}"></span></small></h4>
+    <h4>J&amp;J Mining Shop
+        <small th:each="rate : ${rates}"> |
+            <span th:text="${rate.price}"></span> 
+        </small>
+    </h4>
 
     <title th:text="${title}">Default</title>
 

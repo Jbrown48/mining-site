@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -41,7 +42,7 @@ public class Part {
     private String pcUrl;
 
     //Need to look into adding all parts to arraylist?
-    private static ArrayList<Part> allParts = new ArrayList<>();
+    private static List<Part> allParts = new ArrayList<>();
 
     public Part(String type, String pcUrl) throws IOException {
         this.type = type;
@@ -58,9 +59,11 @@ public class Part {
         this.name = partName;
         this.price = partPrice;
         this.link = absHref;
-        allParts.add(this); ///Still not working as intended adding but adding part multiple time.
+        if (!allParts.contains(this)){
+            allParts.add(this);
+        }
+         ///Still not working as intended adding but adding part multiple time.
     }
-
 
     public Part() {
         ++counter;
@@ -107,12 +110,8 @@ public class Part {
         return pcUrl;
     }
 
-    public static ArrayList<Part> getAllParts() {
+    public static List<Part> getAllParts() {
         return allParts;
-    }
-
-    public static void setAllParts(ArrayList<Part> allParts) {
-        Part.allParts = allParts;
     }
     /*
     //Need to look into adding all parts to arraylist?
