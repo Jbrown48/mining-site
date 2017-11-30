@@ -113,14 +113,5 @@ public class Part {
     public static List<Part> getAllParts() {
         return allParts;
     }
-    /*
-    //Need to look into adding all parts to arraylist?
-    public void setPcUrl(String pcUrl) {
-        this.pcUrl = pcUrl;
-    }
 
-    public ArrayList<Part> getPart() {
-        return part;
-    }
- */
 }

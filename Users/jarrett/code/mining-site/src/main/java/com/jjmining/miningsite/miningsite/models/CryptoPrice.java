@@ -15,7 +15,7 @@ public class CryptoPrice {
 
     public CryptoPrice(String name) throws IOException {
         this.name = name;
-        this.price = getPrice(name);
+        this.price = findPrice(name);
     }
 
     public CryptoPrice() {
@@ -33,7 +33,8 @@ public class CryptoPrice {
         return price;
     }
 
-    public static String getPrice(String coin) throws IOException {
+    // access CryptoCompare API REF: https://www.cryptocompare.com/api/#-api-data-price-
+    public static String findPrice(String coin) throws IOException { // access CryptoCompare API REF: https://www.cryptocompare.com/api/#-api-data-price-
         String upCoin = coin.toUpperCase();
         String url = "https://min-api.cryptocompare.com/data/price?fsym="+upCoin+"&tsyms=USD";
         String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
